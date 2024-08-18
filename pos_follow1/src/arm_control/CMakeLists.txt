@@ -54,6 +54,7 @@ include
 
 
 
+
 add_executable(arm_node2 src/arx.cpp)
 add_dependencies(arm_node2 ${PROJECT_NAME}_gencfg)
 
@@ -75,8 +76,8 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64)|(^i686)")
     # Link libraries for x86 architecture
     target_link_libraries(arm_node2 
         ${catkin_LIBRARIES} 
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/arx_lib/libarxx86.so  
-
+         
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/arx_lib/libarxx86.so 
         # kdl_parser
     )
 endif()

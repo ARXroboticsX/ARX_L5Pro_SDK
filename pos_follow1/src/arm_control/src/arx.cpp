@@ -34,9 +34,10 @@ int main(int argc, char **argv)
     ros::NodeHandle node;
     Teleop_Use()->teleop_init(node);
 
-    arx_arm ARX_ARM((int) CONTROL_MODE);
+    arx_arm ARX_ARM((int) CONTROL_MODE, 0.0);
 
-            ros::Subscriber sub_pos = node.subscribe<arm_control::PosCmd>("master1_pos_back", 10, 
+
+            ros::Subscriber sub_pos = node.subscribe<arm_control::PosCmd>("ARX_VR_L", 10, 
                                         [&ARX_ARM](const arm_control::PosCmd::ConstPtr& msg) {
                                                 ARX_ARM.arx5_cmd.x            = msg->x;
                                                 ARX_ARM.arx5_cmd.y            = msg->y;
@@ -52,7 +53,6 @@ int main(int argc, char **argv)
             ros::Publisher pub_current = node.advertise<arm_control::JointInformation>("joint_information", 10);
             ros::Publisher pub_pos = node.advertise<arm_control::PosCmd>("/follow1_pos_back", 10);
             
-
     arx5_keyboard ARX_KEYBOARD;
 
     ros::Rate loop_rate(200);
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
         ARX_ARM.getKey(key);
 
         ARX_ARM.get_joint();
-
+  
         ARX_ARM.update_real(cmd);
     
 ////topic ////////////////////////////////////////////////////

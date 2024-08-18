@@ -90,8 +90,8 @@ public:
     int maxiter=500;
     double eps_joints=1E-15;
 
-    float Lower_Joint[7] = { -3.14  ,-0.1      ,-0.1   ,-1.571 ,-1.571,-6.28 ,-9};
-    float Upper_Joint[7] = { 2.618 , 3.14   ,3.14, 1.571 , 1.571 , 6.28 ,9};
+    float Lower_Joint[7] = { -3.14  ,-0.1      ,-0.1   ,-1.571 ,-1.571,-6.28 ,0};
+    float Upper_Joint[7] = { 2.618 , 3.6   ,3.14, 1.4 , 1.571 , 6.28 ,5};
 
     // Save the coordinates on previous round
     float prev_x = 0, prev_y = 0, prev_z = 0, prev_roll = 0, prev_pitch = 0, prev_yaw = 0, prev_base_yaw = 0;
@@ -119,7 +119,6 @@ public:
     void send_pos_v(float * get_pos,float * send_pos, float * send_vel);
 
     int calc_init=0;
-
 
 
 private:

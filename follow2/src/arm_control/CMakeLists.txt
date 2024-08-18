@@ -53,8 +53,12 @@ include
 
 
 
+
 add_executable(arm_node4 src/arx.cpp)
 add_dependencies(arm_node4 ${PROJECT_NAME}_gencfg)
+
+
+
 
 
 
@@ -72,8 +76,8 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64)|(^i686)")
     # Link libraries for x86 architecture
     target_link_libraries(arm_node4 
         ${catkin_LIBRARIES} 
+         
         ${CMAKE_CURRENT_SOURCE_DIR}/src/arx_lib/libarxx86.so 
-
         # kdl_parser
     )
 endif()
@@ -81,7 +85,6 @@ endif()
 install(TARGETS arm_node4
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-
 
 
 install(DIRECTORY
