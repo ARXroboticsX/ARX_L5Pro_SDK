@@ -68,7 +68,7 @@ int main(int argc, char **argv)
         ARX_ARM.getKey(key);
 
         ARX_ARM.get_joint();
-   
+
         ARX_ARM.update_real(cmd);
     
 ////topic ////////////////////////////////////////////////////

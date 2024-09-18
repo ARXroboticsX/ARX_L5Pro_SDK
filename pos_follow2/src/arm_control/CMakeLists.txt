@@ -52,14 +52,10 @@ include
 
 
 
-
-
-
 add_executable(arm_node4 src/arx.cpp)
 add_dependencies(arm_node4 ${PROJECT_NAME}_gencfg)
 
 
- 
 
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm.*|arm|aarch64")
